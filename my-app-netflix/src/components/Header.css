@@ -11,54 +11,57 @@ header{
     padding: 0 30px;
     background: transparent;
     transition: all ease 0.5s;
-}
-
-header.black{
+    }
+    
+    header.black{
     background-color: #141414;
-}
-
-.header--logo {
+    }
+    
+    .header--logo {
     height: 25px;
-}
-
-.header--logo img{
+    }
+    
+    .header--logo img{
     height: 100%;
-}
-
-.header--menu{
+    }
+    
+    .header--menu{
     margin-left: -30rem;
-}
-
-.header--menu > ul{
+    }
+    
+    .header--menu > ul{
     display: flex;
     align-items: center;
     list-style: none;
-}
-
-.header--menu > ul > li{
+    }
+    
+    .header--menu > ul > li{
     padding: 1rem;
-}
-
-.header--user{
+    }
+    
+    .header--user{
+    display: flex;
+    align-items: center;
     height: 35px;
-}
-
-.header--user img{
-    height: 100%;
+    }
+    
+    .header--user img{
+    width: 35px;
+    height:35px;
     border-radius: 3px;
-}
-
-.header--right{
+    }
+    
+    .header--right{
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.header--search{
-    padding-right: 30px;
-}
-
-.header--search > input{
+    }
+    
+    .header--search{
+    padding-right: 2rem;
+    }
+    
+    .header--search > input{
     padding: .6rem;
     padding-left: 2.3rem;
     width: 17rem;
@@ -67,47 +70,46 @@ header.black{
     border:none;
     background-color: rgba(240, 216, 216, 0.6);
     color: #333;
-}
-
-.header--search > input::placeholder{
+    }
+    
+    .header--search > input::placeholder{
     padding-left: 0rem;
-    color: #000;
-}
-
-.header--search > button{
+    }
+    
+    .header--search > button{
     background-color: transparent;
     border: none;
     margin-right: -1.5rem;
-}
-
-.ico--search{
+    }
+    
+    .ico--search{
     margin: 0px -29px -8px;
     color: #fff;
-}
-
-.ico--search:hover{
+    }
+    
+    .ico--search:hover{
     cursor: pointer;
-}
-
-.ico--close{
+    }
+    
+    .ico--close{
     position: absolute;
     visibility: visible;
     color: #fff;
     outline: none;
-    margin: 7px 0px 0px -32px;
-}
-
-
-
-.ico--close:hover{
+    margin: 6px 0px 0px -32px;
+    }
+    
+    .ico--close:hover{
     cursor: pointer;
-}
-
-.ico--notify{
+    }
+    
+    .ico--notify{
+    margin: 0px 24px 5px 0px;
     color: #fff;
-}
-
-.ico--notify:hover{
+    }
+    
+    .ico--notify:hover{
     cursor: pointer;
-}
-
+    }
+    
+    
