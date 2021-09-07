@@ -24,10 +24,10 @@ export default ({ black }) => {
             </div>
             <div className="header--menu">
                 <ul>
-                    <li><a><strong>Inicio</strong></a></li>
-                    <li><a>Séries</a></li>
-                    <li><a>Filmes</a></li>
-                    <li><a>Documentários</a></li>
+                    <li><a href="/StartPage">Inicio</a></li>
+                    <li><a href="/Series">Séries</a></li>
+                    <li><a href="/Movies">Filmes</a></li>
+                    <li><a href="/Documentaries">Documentários</a></li>
                 </ul>
             </div>
             <div className="header--right">
