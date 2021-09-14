@@ -1,16 +1,5 @@
 const API_KEY = '211d40d925fd6b0ef8c556e6a80689a5';
-const API_BASE = 'https://api.themoviedb.org/3';
-
-/*
-    - Originais netflix
-    - recomendados (trendig)
-    - em alta (top rated)
-    - açao
-    - comédia
-    - terror
-    - romance
-    - documentários
-*/
+const API_BASE = 'https://api.themoviedb.org/3'; 
 
 const basicFetch = async (endpoint) => {
     const req = await fetch (`${API_BASE}${endpoint}`); // await: Serve para esperar a resposta para quando receber a resposta seguir com o código
@@ -19,13 +8,18 @@ const basicFetch = async (endpoint) => {
 }
 
 export default {
-    getHomeList: async () => {
+    getHomeList: async (props) => {
         return[
             {
             slug: 'originals',
             title: 'Originais da Netflix',
             items: await basicFetch(`/discover/tv?with_network=213&language=pt-BR&api_key=${API_KEY}`)
         },
+        // {
+        //     slug: 'search',
+        //     title: 'Busca',
+        //     items: await basicFetch(`/search/tv${props..search}&language=pt-BR&api_key=${API_KEY}`)
+        // },
         {
             slug: 'trending',
             title: 'Recomendados para Você',
@@ -65,6 +59,11 @@ export default {
             title: 'Documentários',
             items: await basicFetch(`/discover/movie?with_genres=99&language=pt-BR&api_key=${API_KEY}`)
         },
+        {
+            slug: 'series',
+            title: 'Séries',
+            items: await basicFetch(`/tv/airing_today?language=pt-BR&api_key=${API_KEY}`)
+        },
 
         ]
     },
@@ -85,5 +84,5 @@ export default {
             }
         }
         return info;
-    }
+    },
 }

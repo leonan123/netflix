@@ -8,6 +8,7 @@ import StartPage from './pages/inicio/StartPage';
 import Series from './pages/series/Series';
 import Documentaries from './pages/documentarios/Documentaries';
 import Movies from './pages/filmes/Movies';
+import Search from './pages/search/Search';
 
 export default () => {
   const [blackHeader, setBlackHeader] = useState(false);
@@ -31,18 +32,12 @@ export default () => {
         <Header black={blackHeader} />
         <div className="marginTop">
           <Switch>
-            <Route path="/StartPage">
-              <StartPage />
-            </Route>
-            <Route path="/Series">
-              <Series />
-            </Route>
-            <Route path="/Movies">
-              <Movies />
-            </Route>
-            <Route path="/Documentaries">
-              <Documentaries />
-            </Route>v
+            <Route  exact path="/" component={StartPage}/>
+            <Route path="/StartPage" component={StartPage}/>
+            <Route path="/Series" component={Series}/>
+            <Route path="/Movies" component={Movies}/>
+            <Route path="/Documentaries" component={Documentaries}/>    
+            <Route path="/Search" component={Search}/>    
           </Switch>
         </div>
       </BrowserRouter>

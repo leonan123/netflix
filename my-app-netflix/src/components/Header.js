@@ -1,21 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import SearchIcon from '@material-ui/icons/Search';
-import CloseIcon from '@material-ui/icons/Close';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import { NavLink } from 'react-router-dom';
 import './Header.css';
 
 export default ({ black }) => {
 
-    useEffect(() => {
-        const icoClose = document.getElementById('close');
-        const isEmpty = str => !str.trim().length;
+    const [blackHeader, setBlackHeader] = useState(false);
+    const [search, setSearch] = useState(" ");
 
-        if (document.getElementById("search").value.length == 0) {
-            icoClose.classList.remove('ico--close--focus');
-        } else {
-            icoClose.classList.add('ico--close--focus')
+    useEffect(() => {
+        const scrollListener = () => {
+            if (window.scrollY > 10) {
+                setBlackHeader(true);
+            } else
+                setBlackHeader(false);
         }
-    }, [])
+
+        window.addEventListener('scroll', scrollListener);
+        return () => {
+            window.removeEventListener('scroll', scrollListener)
+        }
+    }, []);
 
     return (
         <header className={black ? 'black' : ''}>
@@ -24,16 +30,21 @@ export default ({ black }) => {
             </div>
             <div className="header--menu">
                 <ul>
-                    <li><a href="/StartPage">Inicio</a></li>
-                    <li><a href="/Series">Séries</a></li>
-                    <li><a href="/Movies">Filmes</a></li>
-                    <li><a href="/Documentaries">Documentários</a></li>
+                    <li><NavLink className="header--menu--link" to="/StartPage">Inicio</NavLink></li>
+                    <li><NavLink className="header--menu--link" to="/Movies">Filmes</NavLink></li>
+                    <li><NavLink className="header--menu--link" to="/Documentaries">Documentários</NavLink></li>
+                    <li><NavLink className="header--menu--link" to="/Series">Séries</NavLink></li>
+                    <li><NavLink className="header--menu--link" to="/Search">Buscar</NavLink></li>
                 </ul>
             </div>
             <div className="header--right">
                 <div className="header--search">
-                    <button type="submit"><SearchIcon className="ico--search" /></button><input type="text" name="search" id="search" placeholder="Buscar" />
-                    <CloseIcon id="close" className="ico--close" />
+                    <form action="">
+                        <input onChange={ e => setSearch(e.target.value)} type="text" name="query" id="query" placeholder="Buscar" />
+                        <button type="submit">
+                            <SearchIcon className="ico--search" />
+                        </button>
+                    </form>
                 </div>
                 <div className="header--user">
                     <a href="/">
